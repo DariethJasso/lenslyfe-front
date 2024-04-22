@@ -4,6 +4,7 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { IconButton } from '@mui/material';
 import DrawerProfileOptions from '../profile/DrawerProfileOptions';
 import { useDataUser } from '../../hook/useDataUser';
+import { IconMenu, IconSquarePlus } from '@tabler/icons-react';
 
 export const AppBarProfile = () => {
     const {users,logout} = useDataUser();
@@ -19,9 +20,9 @@ export const AppBarProfile = () => {
         <div className='flex items-center justify-between h-full px-3'>
         <p className='text-white'>@{users?.username}</p>
         <div className='flex gap-3 items-center text-white'>
-            <AddBoxOutlinedIcon />
+            <IconSquarePlus />
             <IconButton onClick={handleDrawerOpen}>
-                <MenuOutlinedIcon sx={{ color: 'white' }}  />
+                <IconMenu style={{color:'white'}}/>
             </IconButton>
         </div>
     </div>

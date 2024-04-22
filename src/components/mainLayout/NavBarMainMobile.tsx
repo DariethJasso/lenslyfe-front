@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import { Home } from '@mui/icons-material';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import { AvatarToltip } from './AvatarToltip';
+import { IconCameraPlus, IconHome, IconHomeFilled, IconSearch } from '@tabler/icons-react';
 const NavBarMainMobile = () => {
     const pathname = window.location.pathname;
     const style = 
@@ -16,17 +13,17 @@ const NavBarMainMobile = () => {
         {
             name: "Home",
             link: "/main",
-            icon: pathname === "/main" ? <Home sx={style}/> : <HomeOutlinedIcon sx={style}/>
+            icon: pathname === "/main" ? <IconHomeFilled style={style}/> : <IconHome style={style}/>
         },
         {
             name: "Explore",
             link: "/explore",
-            icon: <SearchOutlinedIcon sx={style}/>
+            icon: <IconSearch style={style}/>
         },
         {
             name: "New Post",
             link: "/newpost",
-            icon: <AddAPhotoOutlinedIcon    sx={style}/>
+            icon: <IconCameraPlus style={style}/>
         },
         {
             name: "Profile",
@@ -37,7 +34,7 @@ const NavBarMainMobile = () => {
   return (
     <nav className='flex justify-evenly items-center w-full h-full'>
         {links.map((link) => (
-            <Link to={link.link}><p className='text-white '>{link.icon}</p></Link>
+            <Link key={link.name} to={link.link}><p className='text-white '>{link.icon}</p></Link>
         ))}
     </nav>
   )

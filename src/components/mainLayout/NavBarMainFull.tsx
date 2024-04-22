@@ -29,13 +29,13 @@ const NavBarMainFull = () => {
         {
             name: "Profile",
             link: "/profile",
-            icon :<AvatarToltip/>
+            icon :<AvatarToltip border={false}/>
         }
     ]
   return (
     <nav className='flex flex-col items-center gap-3 xl:items-start'>
         {links.map((link) => (
-            <Link to={link.link}><p className='text-white flex items-center gap-2 '>{link.icon}<span className='hidden xl:flex xl:font-bold'>{link.name}</span></p></Link>
+            <Link key={link.name} to={link.link}><p className='text-white flex items-center gap-2 '>{link.icon}<span className='hidden xl:flex xl:font-bold'>{link.name}</span></p></Link>
         ))}
         
     </nav>

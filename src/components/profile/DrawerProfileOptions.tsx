@@ -8,15 +8,15 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { IconLogout } from '@tabler/icons-react';
 
 const drawerWidth = 240;
 
 const options1 = [
     {
         name: 'Logout',
-        icon: <LogoutOutlinedIcon />,
+        icon: <IconLogout/>,
     }
 ]
 

@@ -6,7 +6,7 @@ import { store, persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { DataUserProvider } from "./context/useDataUser";
-
+import { MantineProvider } from "@mantine/core";
 
 function App() {
 
@@ -25,7 +25,9 @@ function App() {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <DataUserProvider>
-          <RouterProvider router={router} />
+          <MantineProvider>
+            <RouterProvider router={router} />
+          </MantineProvider>
         </DataUserProvider>
       </PersistGate>
     </Provider>
