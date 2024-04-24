@@ -1,3 +1,4 @@
+import DrawerNewPost from "@/components/main/DrawerNewPost"
 import Hostories from "../components/main/Hostories"
 import Post from "../components/post"
 
@@ -7,6 +8,7 @@ const Main = () => {
   return (
     <div className="w-[100%] xl:w-[50%] h-full bg-black">
       <Hostories />
+      <DrawerNewPost triger='New Post' />
       <div className="flex sm:justify-center flex-col">
         <Post />
         <Post />

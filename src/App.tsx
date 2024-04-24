@@ -7,6 +7,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { DataUserProvider } from "./context/useDataUser";
 import { MantineProvider } from "@mantine/core";
+import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
 
@@ -26,7 +27,9 @@ function App() {
       <PersistGate persistor={persistor}>
         <DataUserProvider>
           <MantineProvider>
-            <RouterProvider router={router} />
+            <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+              <RouterProvider router={router} />
+            </ThemeProvider>
           </MantineProvider>
         </DataUserProvider>
       </PersistGate>

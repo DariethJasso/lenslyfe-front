@@ -1,6 +1,6 @@
 import { combineReducers, configureStore,AnyAction } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
-import  {thunk, ThunkDispatch }  from "redux-thunk";
+import  {ThunkDispatch }  from "redux-thunk";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
 import  authSlice from "./authSlice";

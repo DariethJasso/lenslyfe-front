@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AvatarToltip } from './AvatarToltip';
 import { IconCameraPlus, IconHome, IconHomeFilled, IconSearch } from '@tabler/icons-react';
+import { Drawer } from 'vaul';
+import DrawerNewPost from '../main/DrawerNewPost';
 const NavBarMainMobile = () => {
     const pathname = window.location.pathname;
     const style = 
@@ -34,7 +36,7 @@ const NavBarMainMobile = () => {
   return (
     <nav className='flex justify-evenly items-center w-full h-full'>
         {links.map((link) => (
-            <Link key={link.name} to={link.link}><p className='text-white '>{link.icon}</p></Link>
+            link.link === "/newpost" ? <DrawerNewPost key={link.name} triger={link.icon} /> : <Link key={link.name} to={link.link}><p className='text-white '>{link.icon}</p></Link>
         ))}
     </nav>
   )

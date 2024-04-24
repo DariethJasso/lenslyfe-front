@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { logoutUser } from "../store/authSlice";
 
 type User = {
+    id: number,
     name: string,
     lastname: string,
     username: string,

@@ -1,6 +1,4 @@
 import React from 'react'
-import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { IconButton } from '@mui/material';
 import DrawerProfileOptions from '../profile/DrawerProfileOptions';
 import { useDataUser } from '../../hook/useDataUser';
