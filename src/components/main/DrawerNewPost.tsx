@@ -11,14 +11,17 @@ import {
   import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { IconPhotoUp } from '@tabler/icons-react'
-import { useDataUser } from '@/hook/useDataUser'
 import { newPost } from '@/store/services'
 const DrawerNewPost = ({triger}:any) => {
-    const {users} = useDataUser();
+
+const persistedStateJSON = localStorage.getItem('persist:root');
+const persistedState = JSON.parse(persistedStateJSON || '{}');
+const userId = persistedState && persistedState.auth ? JSON.parse(persistedState.auth).user?.id : null;
+
     const [formData, setFormData] = React.useState({
         text: '',
         url_img: '',
-        user_id: users?.id
+        user_id: userId
     })
 
     const handleChange = (e:any) => {
