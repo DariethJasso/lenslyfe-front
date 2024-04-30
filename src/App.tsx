@@ -8,9 +8,9 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import { DataUserProvider } from "./context/useDataUser";
 import { MantineProvider } from "@mantine/core";
 import { ThemeProvider } from "./components/theme-provider";
-
+import { Cloudinary } from "@cloudinary/url-gen";
 function App() {
-
+  const cld = new Cloudinary({cloud: {cloudName: 'dv6jkcl0z'}});
   const router = createBrowserRouter(routes.map((route) =>({
     ...route,
     element : route.isProtected ? <ProtectedRoute children={createElement(route.element)}/>: createElement(route.element),

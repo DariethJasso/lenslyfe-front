@@ -6,11 +6,11 @@ import { useDataUser } from '../../hook/useDataUser';
 export const AvatarToltip = ({border}:{border:boolean}) => {
   const {users} = useDataUser();
   return (
-    <div>
+    
     <Tooltip title="Profile">
-      <Avatar  src={users?.avatar}  sx={{width: 30, height: 30 }} className={`${border ? 'border border-2' : ''}`}/>
+      <Avatar  src={users?.avatar}  sx={{width: 30, height: 30 }} className={`${border ? 'border-2' : ''}`}/>
     </Tooltip>
     
-  </div>
+  
   )
 }

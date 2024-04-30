@@ -7,7 +7,7 @@ const InfoProfile = ({user}: {user: any}) => {
     <div className='max-w-[500px] p-4'>
         <div className='flex items-center justify-between px-4'>
             <Avatar src={user?.avatar} sx={{width: 80, height: 80}}/> H
-            <div className='flex text-white gap-2 border'>
+            <div className='flex text-white gap-2'>
                 <p><span className='font-bold'>17</span>posts</p>
                 <p><span className='font-bold'>83</span>followers</p>
                 <p><span className='font-bold'>153</span>following</p>

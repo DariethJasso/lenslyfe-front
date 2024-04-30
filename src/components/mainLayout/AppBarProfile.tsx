@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton } from '@mui/material';
+
 import DrawerProfileOptions from '../profile/DrawerProfileOptions';
 import { useDataUser } from '../../hook/useDataUser';
 import { IconMenu, IconSquarePlus } from '@tabler/icons-react';
@@ -19,9 +19,8 @@ export const AppBarProfile = () => {
         <p className='text-white'>@{users?.username}</p>
         <div className='flex gap-3 items-center text-white'>
             <IconSquarePlus />
-            <IconButton onClick={handleDrawerOpen}>
-                <IconMenu style={{color:'white'}}/>
-            </IconButton>
+            <IconMenu onClick={handleDrawerOpen} style={{color:'white'}}/>
+            
         </div>
     </div>
     <DrawerProfileOptions open={open} setOpen={setOpen} logout={logout} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
     Drawer,
     DrawerContent,
@@ -12,6 +12,7 @@ import {
 import { Label } from "@/components/ui/label"
 import { IconPhotoUp } from '@tabler/icons-react'
 import { newPost } from '@/store/services'
+import axios from 'axios'
 const DrawerNewPost = ({triger}:any) => {
 
 const persistedStateJSON = localStorage.getItem('persist:root');
@@ -21,20 +22,46 @@ const userId = persistedState && persistedState.auth ? JSON.parse(persistedState
     const [formData, setFormData] = React.useState({
         text: '',
         url_img: '',
-        user_id: userId
+        user_id: 0
     })
 
     const handleChange = (e:any) => {
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value
+            [e.target.id]: e.target.value,
+            user_id: userId
         })
     }
 
     const handleSubmit = async () => {
         console.log(formData)
         await newPost({formData});
+
     }
+
+    const [urlImg, setUrlImg] = React.useState('');
+
+    const changeUploadedImage = async (e:any) => {
+        const file = e.target.files[0];
+
+        console.log(e)
+
+        const data = new FormData();
+
+        data.append('file', file);
+        data.append('upload_preset','posts_img')
+
+        const response = await axios.post('https://api.cloudinary.com/v1_1/dv6jkcl0z/image/upload', data);
+        setFormData({
+            ...formData,
+            url_img: response.data.secure_url
+            
+        })
+        console.log(response.data)
+        setUrlImg(response.data.secure_url);
+    }   
+
+    
   return (
     
         <Drawer>
@@ -49,10 +76,17 @@ const userId = persistedState && persistedState.auth ? JSON.parse(persistedState
                                     <Label htmlFor="text" className='text-white'>Text</Label>
                                     <Input type="text" id="text" placeholder="Text" onChange={handleChange} />
                                 </div>
-                                <div className="grid w-full max-w-sm items-center gap-1.5">
+                                {/* <div className="grid w-full max-w-sm items-center gap-1.5">
                                     <Label htmlFor="url_img" className='text-white'>UrlImage</Label>
                                     <Input type="text" id="url_img" placeholder="Url Image" onChange={handleChange} />
+                                </div> */}
+                                <div className="grid w-full max-w-sm items-center gap-1.5">
+                                    <Label htmlFor="url_img" className='text-white'>Image's'</Label>
+                                    <Input type="file" accept='image/*' id="url_img" placeholder="Url Image" onChange={changeUploadedImage} />
                                 </div>
+                                {
+                                    urlImg && <img src={urlImg} alt="" />
+                                }
                             </div>
                             
                         
