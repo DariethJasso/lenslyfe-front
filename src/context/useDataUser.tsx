@@ -29,8 +29,12 @@ const DataUserProvider = ({ children }: { children: React.ReactNode }) => {
     const user = useSelector((state: RootState) => state.auth.user);
     const [userFull, setUserFull] = React.useState<User[]>([]);
     const logout = () => {
-        setUsers(null);
-        dispatch(logoutUser());
+        try {
+            setUsers(null); // Limpiamos el estado de usuario
+            dispatch(logoutUser()); // Despachamos la acción de logout
+        } catch (error) {
+            console.error("Error al hacer logout:", error);
+        }
     };
 
     const { data: postData } = useSWR('http://127.0.0.1:8000/api/posts/posts', fetcher, { refreshInterval: 5000 });

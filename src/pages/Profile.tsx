@@ -1,15 +1,18 @@
 import React from 'react'
 import InfoProfile from '../components/profile/InfoProfile'
 import { useDataUser } from '../hook/useDataUser';
-import { Divider } from '@mui/material';
+import { Separator } from '@/components/ui/separator';
+import PostProfile from '@/components/profile/PostProfile';
+import MenuOptions from '@/components/profile/MenuOptions';
 
 const Profile = () => {
     const {users} = useDataUser();
   return (
-    <main className='bg-black h-screen md:w-[100%] '>
+    <main className='bg-black h-full md:w-[100%] '>
       <div>
         <InfoProfile user ={users} />
-        <Divider sx={{color: 'white'}} orientation='horizontal' flexItem variant='middle' />
+        <Separator className='my-1 ' />
+        <MenuOptions />
       </div>
     </main>
   )
